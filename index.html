@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <title> Simple Calculator </title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/10.4.3/math.min.js" integrity="sha512-d6sEP6+azCvTepdAZ2OKY9jkTA7/jnU7seyEF05Dd0QXQuj0dse7smxIYZiKRNRRxhSDJ+aE+/wY57TETmnpVw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+<body onload="initialize_app()">
+<div class="container">
+    <div class="row mt-3">
+        <div class="col">
+        </div>
+
+        <div class="col">
+            <input type="text" class="form-control" id="expression" placeholder="5*6">
+
+            <div class="row mt-3" style="margin: auto;">
+                <div class="row mt-1 " >
+                    <button type="button" class="col-2 btn btn-secondary" onclick="input_number('1')">  <b> 1 </b>  </button> &nbsp;
+                    <button type="button" class="col-2 btn btn-secondary" onclick="input_number('2')">  <b> 2 </b>  </button> &nbsp;
+                    <button type="button" class="col-2 btn btn-secondary" onclick="input_number('3')">  <b> 3 </b>  </button> &nbsp;
+                    <button type="button" class="col-2 btn btn-warning" onclick="input_operator('+')">    <b> + </b>  </button> 
+
+                </div>
+                <div class="row mt-1" >
+                    <button type="button" class="col-2 btn btn-secondary" onclick="input_number('4')">  <b> 4 </b>  </button> &nbsp;
+                    <button type="button" class="col-2 btn btn-secondary" onclick="input_number('5')">  <b> 5 </b>  </button> &nbsp;
+                    <button type="button" class="col-2 btn btn-secondary" onclick="input_number('6')">  <b> 6 </b>  </button> &nbsp;
+                    <button type="button" class="col-2 btn btn-warning" onclick="input_operator('-')">    <b> - </b>  </button> 
+
+                </div>
+                <div class="row mt-1" >
+                    <button type="button" class="col-2 btn btn-secondary" onclick="input_number('7')">  <b> 7 </b>  </button> &nbsp;
+                    <button type="button" class="col-2 btn btn-secondary" onclick="input_number('8')">  <b> 8 </b>  </button> &nbsp;
+                    <button type="button" class="col-2 btn btn-secondary" onclick="input_number('9')">  <b> 9 </b>  </button> &nbsp;
+                    <button type="button" class="col-2 btn btn-warning" onclick="input_operator('*')">    <b> * </b>  </button> 
+
+                </div>
+                <div class="row mt-1" >
+                    <button type="button" class="col-2 btn btn-secondary" onclick="input_number('0')">  <b> 0 </b>  </button> &nbsp;
+                    <button type="button" class="col-2 btn btn-secondary" onclick="input_operator('.')">  <b> . </b>  </button> &nbsp;
+                    <!-- <button type="button" class="col-2 btn btn-success" id="calculate"> <b> = </b>  </button> &nbsp; -->
+                    <button type="button" class="col-2 btn btn-secondary" id="sqrt" onclick="input_operator('sqrt(')"> <b> sqrt </b>  </button> &nbsp;
+                    <button type="button" class="col-2 btn btn-warning" onclick="input_operator('/')">    <b> / </b>  </button> 
+
+                </div>
+                <div class="row mt-1" >
+                    <button type="button" class="col-2 btn btn-secondary" onclick="input_operator('(')">  <b> ( </b>  </button> &nbsp;
+                    <button type="button" class="col-2 btn btn-secondary" onclick="input_operator(')')">  <b> ) </b>  </button> &nbsp;
+                    <button type="button" class="col-2 btn btn-secondary" onclick="input_operator('^2')"> <b> x^2 </b>  </button> &nbsp;
+                    <button type="button" class="col-2 btn btn-warning" onclick="input_operator('^')">   <b>  x^y </b>  </button> 
+
+                </div>
+                <div class="row mt-1 " >
+                    <button type="button" class="col-8 btn btn-success" id="calculate"> <b> = </b>  </button> &nbsp;
+
+                </div>
+                <div class="row mt-1" >
+                    <button type="button" class="col-4 btn btn-secondary" onclick="allclr()">  <b> Clear </b>  </button> &nbsp;
+                    <button type="button" class="col-4 btn btn-secondary" onclick="bcsp()">  <b> Backspace </b>  </button> &nbsp;
+
+                </div>
+            </div>
+
+            <div>
+                <div class="row mt-3">
+                    <button type="button" class="col-3 btn btn-outline-info btn-sm" onclick="togglefn()">Toggle !</button>
+                    <h4 class="col"> Logs:-- </h4>
+                </div>
+                
+                <hr>
+                <div id="togglediv" style="display: none;">
+                    <ul id="log" style="height:10em; overflow: hidden; overflow-y:scroll;">
+                        <li>Something</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="col">
+        </div>
+    </div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
